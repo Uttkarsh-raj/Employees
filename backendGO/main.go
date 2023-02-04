@@ -20,6 +20,7 @@ func main() {
 
 	//Getting all the values in the database(GET RQUEST)
 	emp := handlers.NewEmployee(l)
+
 	getRouter := r.Methods("GET").Subrouter()
 	getRouter.HandleFunc("/", emp.GetEmployees)
 
@@ -28,6 +29,9 @@ func main() {
 
 	postRouter := r.Methods("POST").Subrouter()
 	postRouter.HandleFunc("/", emp.PostEmployee)
+
+	deleteRouter := r.Methods("DELETE").Subrouter()
+	deleteRouter.HandleFunc("/{id}", emp.DeleteEmployee)
 
 	//Creating and Running a "SERVER"
 	fmt.Println("Server started at port 7070")
