@@ -66,3 +66,13 @@ func findProduct(id int) (*Employee, int, error) {
 	}
 	return nil, -1, ErrProduxtNotFound
 }
+
+func AddProduc(p *Employee) {
+	p.ID = getNextId()
+	EmployeeList = append(EmployeeList, p)
+}
+
+func getNextId() int {
+	lp := EmployeeList[len(EmployeeList)-1]
+	return lp.ID + 1
+}

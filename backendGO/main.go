@@ -26,6 +26,9 @@ func main() {
 	getIdRouter := r.Methods("GET").Subrouter()
 	getIdRouter.HandleFunc("/{id}", emp.GetEmpById)
 
+	postRouter := r.Methods("POST").Subrouter()
+	postRouter.HandleFunc("/", emp.PostEmployee)
+
 	//Creating and Running a "SERVER"
 	fmt.Println("Server started at port 7070")
 	log.Fatal(http.ListenAndServe(":7070", r))
