@@ -33,6 +33,9 @@ func main() {
 	deleteRouter := r.Methods("DELETE").Subrouter()
 	deleteRouter.HandleFunc("/{id}", emp.DeleteEmployee)
 
+	updateRouter := r.Methods("PUT").Subrouter()
+	updateRouter.HandleFunc("/{id}", emp.UpdateHandler)
+
 	//Creating and Running a "SERVER"
 	fmt.Println("Server started at port 7070")
 	log.Fatal(http.ListenAndServe(":7070", r))
