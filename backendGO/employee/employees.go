@@ -7,7 +7,7 @@ import (
 )
 
 type Employee struct {
-	ID       int    `json:"id"`
+	ID       string `json:"id"`
 	Name     string `json:"name"`
 	Salary   string `json:"salary"`
 	Location string `json:"location"`
@@ -22,13 +22,13 @@ func GetEmployees() Employees {
 // DEMO Values
 var EmployeeList = []*Employee{
 	&Employee{
-		ID:       1,
+		ID:       "1",
 		Name:     "John",
 		Salary:   "$1500",
 		Location: "Lomdon",
 	},
 	&Employee{
-		ID:       2,
+		ID:       "2",
 		Name:     "Annya",
 		Salary:   "$1500",
 		Location: "England",
@@ -45,12 +45,12 @@ func (e *Employees) ToJSON(w io.Writer) error {
 	return err.Encode(e)
 }
 
-func GetEmpById(id int, e *Employee) (error, *Employee) {
+func GetEmpById(id string, e *Employee) (error, *Employee) {
 	_, pos, err := findProduct(id)
 	if err != nil {
 		return nil, nil
 	}
-	e.ID = id
+	e.ID = string(id)
 	EmployeeList[pos] = e
 	return nil, EmployeeList[pos]
 
@@ -58,9 +58,9 @@ func GetEmpById(id int, e *Employee) (error, *Employee) {
 
 var ErrProduxtNotFound = fmt.Errorf("Product not found")
 
-func findProduct(id int) (*Employee, int, error) {
+func findProduct(id string) (*Employee, int, error) {
 	for i, p := range EmployeeList {
-		if p.ID == id {
+		if p.ID == (id) {
 			return p, i, nil
 		}
 	}
@@ -68,11 +68,5 @@ func findProduct(id int) (*Employee, int, error) {
 }
 
 func AddProduc(p *Employee) {
-	p.ID = getNextId()
 	EmployeeList = append(EmployeeList, p)
-}
-
-func getNextId() int {
-	lp := EmployeeList[len(EmployeeList)-1]
-	return lp.ID + 1
 }
