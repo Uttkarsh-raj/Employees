@@ -25,7 +25,7 @@ var EmployeeList = []*Employee{
 		ID:       "1",
 		Name:     "John",
 		Salary:   "$1500",
-		Location: "Lomdon",
+		Location: "London",
 	},
 	&Employee{
 		ID:       "2",
