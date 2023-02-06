@@ -48,6 +48,7 @@ class _EmployeeByIdState extends State<EmployeeById> {
               CustomTextBox(
                 title: "E-ID",
                 controller: eIdController,
+                hint: "124FR34",
               ),
               SizedBox(
                 height: k,

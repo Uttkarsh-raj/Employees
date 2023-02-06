@@ -46,6 +46,7 @@ class _EmployeeDeleteState extends State<EmployeeDelete> {
               CustomTextBox(
                 title: "E-ID",
                 controller: eIdController,
+                hint: "244EF21",
               ),
               SizedBox(
                 height: k,

@@ -55,22 +55,24 @@ class _EmployeeCreateState extends State<EmployeeCreate> {
         title: const Text("Register Employee"),
       ),
       body: SingleChildScrollView(
-        child: Center(
-          child: Padding(
-            padding: const EdgeInsets.fromLTRB(10, 30, 10, 10),
+        child: Padding(
+          padding: const EdgeInsets.fromLTRB(10, 30, 10, 10),
+          child: Center(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 CustomTextBox(
-                  title: "Name",
-                  controller: nameController,
+                  title: "E-ID",
+                  controller: eIdController,
+                  hint: "244Ed21",
                 ),
                 SizedBox(
                   height: k,
                 ),
                 CustomTextBox(
-                  title: "E-ID",
-                  controller: eIdController,
+                  title: "Name",
+                  controller: nameController,
+                  hint: "John Doe",
                 ),
                 SizedBox(
                   height: k,
@@ -78,6 +80,7 @@ class _EmployeeCreateState extends State<EmployeeCreate> {
                 CustomTextBox(
                   title: "Salary",
                   controller: salaryController,
+                  hint: "\$200",
                 ),
                 SizedBox(
                   height: k,
@@ -85,6 +88,7 @@ class _EmployeeCreateState extends State<EmployeeCreate> {
                 CustomTextBox(
                   title: "Location",
                   controller: locationController,
+                  hint: "Berlin",
                 ),
                 const SizedBox(
                   height: 30,
@@ -98,10 +102,13 @@ class _EmployeeCreateState extends State<EmployeeCreate> {
                       ),
                       backgroundColor: Colors.grey[900],
                     );
-                    registerEmp(eIdController, nameController, salaryController,
-                        locationController);
-                    if (isemployee == true)
-                      ScaffoldMessenger.of(context).showSnackBar(snackbar);
+                    registerEmp(
+                      eIdController,
+                      nameController,
+                      salaryController,
+                      locationController,
+                    );
+                    ScaffoldMessenger.of(context).showSnackBar(snackbar);
                   },
                   child: const Center(
                     child: CustomButton(

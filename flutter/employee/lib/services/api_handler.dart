@@ -48,16 +48,16 @@ class Api_Handler {
   static Future<EmployeeModel> registerEmployee({
     required String id,
     required String name,
-    required String location,
     required String salary,
+    required String location,
   }) async {
     try {
       var uri = 'http://192.168.0.145:7070/';
       Map<String, String> mp = {
         "id": id,
         "name": name,
-        "location": location,
         "salary": salary,
+        "location": location,
       };
       String jsonEncoded = jsonEncode(mp);
       var res = await http.post(Uri.parse(uri), body: jsonEncoded);
@@ -80,8 +80,8 @@ class Api_Handler {
       Map<String, String> mp = {
         "id": id,
         "name": name,
-        "location": location,
         "salary": salary,
+        "location": location,
       };
       String jsonEncoded = jsonEncode(mp);
       var res = await http.put(Uri.parse(uri), body: jsonEncoded);

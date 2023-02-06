@@ -5,14 +5,16 @@ class CustomTextBox extends StatelessWidget {
     super.key,
     required this.controller,
     required this.title,
+    required this.hint,
   });
   final TextEditingController controller;
   final String title;
+  final String hint;
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Center(
-      child: Flexible(
+      child: SizedBox(
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -40,7 +42,10 @@ class CustomTextBox extends StatelessWidget {
                 padding: const EdgeInsets.fromLTRB(13, 0, 0, 4),
                 child: TextField(
                   controller: controller,
-                  decoration: const InputDecoration(border: InputBorder.none),
+                  decoration: InputDecoration(
+                    border: InputBorder.none,
+                    hintText: hint,
+                  ),
                   style: const TextStyle(color: Colors.black, fontSize: 16),
                 ),
               ),
