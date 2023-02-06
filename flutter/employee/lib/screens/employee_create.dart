@@ -21,8 +21,12 @@ class _EmployeeCreateState extends State<EmployeeCreate> {
   late EmployeeModel employee;
   bool isemployee = false;
 
-  Future<void> registerEmp(TextEditingController id, TextEditingController name,
-      TextEditingController salary, TextEditingController location) async {
+  Future<void> registerEmp(
+    TextEditingController id,
+    TextEditingController name,
+    TextEditingController salary,
+    TextEditingController location,
+  ) async {
     employee = await Api_Handler.registerEmployee(
       id: id.text.trim(),
       name: name.text.trim(),
@@ -96,7 +100,8 @@ class _EmployeeCreateState extends State<EmployeeCreate> {
                     );
                     registerEmp(eIdController, nameController, salaryController,
                         locationController);
-                    ScaffoldMessenger.of(context).showSnackBar(snackbar);
+                    if (isemployee == true)
+                      ScaffoldMessenger.of(context).showSnackBar(snackbar);
                   },
                   child: const Center(
                     child: CustomButton(
