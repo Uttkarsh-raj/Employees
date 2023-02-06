@@ -1,4 +1,4 @@
-import 'package:employee/screens/delete_employee.dart';
+import 'package:employee/screens/employee_delete.dart';
 import 'package:employee/screens/employee_create.dart';
 import 'package:employee/screens/employee_update.dart';
 import 'package:employee/screens/get_emp_id.dart';
