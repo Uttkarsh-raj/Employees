@@ -30,98 +30,100 @@ class _EmployeeOptionsState extends State<EmployeeOptions> {
         centerTitle: true,
         title: const Text("Employee"),
       ),
-      body: Center(
-        child: Padding(
-          padding: const EdgeInsets.fromLTRB(10, 30, 10, 10),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              GestureDetector(
-                onTap: () {
-                  Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (context) => const EmployeeAll(),
+      body: SingleChildScrollView(
+        child: Center(
+          child: Padding(
+            padding: const EdgeInsets.fromLTRB(10, 30, 10, 10),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                GestureDetector(
+                  onTap: () {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (context) => const EmployeeAll(),
+                      ),
+                    );
+                  },
+                  child: const Center(
+                    child: CustomButton(
+                      type: "All Empls.",
                     ),
-                  );
-                },
-                child: const Center(
-                  child: CustomButton(
-                    type: "All Empls.",
                   ),
                 ),
-              ),
-              SizedBox(
-                height: k,
-              ),
-              GestureDetector(
-                onTap: () {
-                  Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (context) => const EmployeeById(),
+                SizedBox(
+                  height: k,
+                ),
+                GestureDetector(
+                  onTap: () {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (context) => const EmployeeById(),
+                      ),
+                    );
+                  },
+                  child: const Center(
+                    child: CustomButton(
+                      type: "Employee-ID",
                     ),
-                  );
-                },
-                child: const Center(
-                  child: CustomButton(
-                    type: "Employee-ID",
                   ),
                 ),
-              ),
-              SizedBox(
-                height: k,
-              ),
-              GestureDetector(
-                onTap: () {
-                  Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (context) => const EmployeeCreate(),
+                SizedBox(
+                  height: k,
+                ),
+                GestureDetector(
+                  onTap: () {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (context) => const EmployeeCreate(),
+                      ),
+                    );
+                  },
+                  child: const Center(
+                    child: CustomButton(
+                      type: "REGISTER",
                     ),
-                  );
-                },
-                child: const Center(
-                  child: CustomButton(
-                    type: "REGISTER",
                   ),
                 ),
-              ),
-              SizedBox(
-                height: k,
-              ),
-              GestureDetector(
-                onTap: () {
-                  Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (context) => const EmployeeUpdate(),
+                SizedBox(
+                  height: k,
+                ),
+                GestureDetector(
+                  onTap: () {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (context) => const EmployeeUpdate(),
+                      ),
+                    );
+                  },
+                  child: const Center(
+                    child: CustomButton(
+                      type: "Update",
                     ),
-                  );
-                },
-                child: const Center(
-                  child: CustomButton(
-                    type: "Update",
                   ),
                 ),
-              ),
-              SizedBox(
-                height: k,
-              ),
-              GestureDetector(
-                onTap: () {
-                  Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (context) => const EmployeeDelete(),
+                SizedBox(
+                  height: k,
+                ),
+                GestureDetector(
+                  onTap: () {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (context) => const EmployeeDelete(),
+                      ),
+                    );
+                  },
+                  child: const Center(
+                    child: CustomButton(
+                      type: "Delete",
                     ),
-                  );
-                },
-                child: const Center(
-                  child: CustomButton(
-                    type: "Delete",
                   ),
                 ),
-              ),
-              SizedBox(
-                height: k,
-              ),
-            ],
+                SizedBox(
+                  height: k,
+                ),
+              ],
+            ),
           ),
         ),
       ),

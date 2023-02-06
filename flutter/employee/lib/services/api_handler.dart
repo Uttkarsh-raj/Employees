@@ -45,4 +45,28 @@ class Api_Handler {
       throw error.toString();
     }
   }
+
+  static Future<EmployeeModel> registerEmployee({
+    required String id,
+    required String name,
+    required String location,
+    required String salary,
+  }) async {
+    try {
+      var uri = 'http://192.168.0.145:7070/';
+      Map<String, String> mp = {
+        "id": id,
+        "name": name,
+        "location": location,
+        "salary": salary,
+      };
+      String jsonEncoded = jsonEncode(mp);
+      var res = await http.post(Uri.parse(uri), body: jsonEncoded);
+      var data = jsonDecode(res.body);
+      return EmployeeModel.fromJson(data);
+    } catch (error) {
+      log("An error occured $error.");
+      throw error.toString();
+    }
+  }
 }

@@ -35,11 +35,12 @@ class _EmployeeAllState extends State<EmployeeAll> {
           ? const Center(
               child: CircularProgressIndicator(),
             )
-          : SafeArea(
+          : SingleChildScrollView(
               child: Column(
                 children: [
                   ListView.builder(
                     scrollDirection: Axis.vertical,
+                    controller: ScrollController(),
                     shrinkWrap: true,
                     itemCount: employeeList.length,
                     itemBuilder: (context, index) {
