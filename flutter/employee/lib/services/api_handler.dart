@@ -61,7 +61,7 @@ class Api_Handler {
       };
       String jsonEncoded = jsonEncode(mp);
       var res = await http.post(Uri.parse(uri), body: jsonEncoded);
-      var data = jsonDecode(res.body);
+      var data = await jsonDecode(jsonEncoded);
       return EmployeeModel.fromJson(data);
     } catch (error) {
       log("An error occured $error.");
@@ -85,7 +85,7 @@ class Api_Handler {
       };
       String jsonEncoded = jsonEncode(mp);
       var res = await http.put(Uri.parse(uri), body: jsonEncoded);
-      var data = jsonDecode(res.body);
+      var data = jsonDecode(jsonEncoded);
       return EmployeeModel.fromJson(data);
     } catch (error) {
       log("An error occured $error.");
@@ -97,8 +97,7 @@ class Api_Handler {
     try {
       var uri = 'http://192.168.0.145:7070/$id';
       var res = await http.delete(Uri.parse(uri));
-      var data = jsonDecode(res.body);
-      return EmployeeModel.fromJson(data);
+      return EmployeeModel.fromJson({});
     } catch (error) {
       log("An error occured $error.");
       throw error.toString();
